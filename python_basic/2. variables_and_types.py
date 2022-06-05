@@ -1,6 +1,6 @@
 mystring = 'hello'
 myfloat = float(10)
-myint = 30
+myint = 20
 
 if mystring == "hello":
     print("String: %s" % mystring)
