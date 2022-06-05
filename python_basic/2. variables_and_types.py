@@ -2,7 +2,6 @@ myString = 'hello'
 myFloat = float(10)
 myInt = 20
 
-# testing code
 if myString == "hello":
     print("String: %s" % myString)
 if isinstance(myFloat, float) and myFloat == 10.0:
