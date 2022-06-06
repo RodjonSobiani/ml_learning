@@ -16,7 +16,7 @@ if type(fib()) == types.GeneratorType:
 
     counter = 0
     for n in fib():
-        print(n)
+        print(n, end=' ')
         counter += 1
         if counter == 10:
             break
