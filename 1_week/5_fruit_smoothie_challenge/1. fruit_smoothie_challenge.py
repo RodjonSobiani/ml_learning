@@ -8,7 +8,6 @@ prices = {
     "Raspberries": "$1.00",
     "Apple": "$1.75",
     "Pineapple": "$3.50",
-    "___": "___",
 }
 
 
@@ -18,25 +17,19 @@ class Smoothie:
 
     def get_cost(self):
         ingredients = self.ingredients
+        product_cost = 0.00
         sort = list(filter(lambda i: i[0] in ingredients, prices.items()))
-        print(sort)
+        for cost, value in sort:
+            product_cost += float(value[1:])
+        return "$%.2f" % product_cost
 
-        for cost in sort:
-            cost = float(cost[1].replace('$', ''), 2)
-            print('COST: ', cost)
-            return cost
-
-        # cost = []
-        # ingredients = self.ingredients
-        # print('1: ', len(ingredients))
-        # for i in range(len(ingredients)):
-        #     for (key, value) in prices.items():
-        #         if key == ' '.join(ingredients):
-        #             print('KEY: ', key)
-        #             print('VALUE: ', value)
-        #             return value
-        #         cost.append(value)
-        #         print('COST: ', cost)
+    def get_price(self):
+        ingredients = self.ingredients
+        product_cost = 0.00
+        sort = list(filter(lambda i: i[0] in ingredients, prices.items()))
+        for cost, value in sort:
+            product_cost += float(value[1:])
+        return "$%.2f" % (product_cost + product_cost * 1.5)
 
     def get_name(self):
         ingredients = self.ingredients
@@ -60,27 +53,27 @@ class TestStringMethods(unittest.TestCase):
     def test_negative(self):
         self.assertEqual(s1.ingredients, ["Banana"])
         self.assertEqual(s1.get_cost(), "$0.50")
-        # self.assertEqual(s1.get_price(), "$1.25")
+        self.assertEqual(s1.get_price(), "$1.25")
         self.assertEqual(s1.get_name(), "Banana Smoothie")
 
         self.assertEqual(s2.ingredients, ["Raspberries", "Strawberries", "Blueberries"])
         self.assertEqual(s2.get_cost(), "$3.50")
-        # self.assertEqual(s2.get_price(), "$8.75")
+        self.assertEqual(s2.get_price(), "$8.75")
         self.assertEqual(s2.get_name(), "Blueberry Raspberry Strawberry Fusion")
 
         self.assertEqual(s3.ingredients, ["Mango", "Apple", "Pineapple"])
         self.assertEqual(s3.get_cost(), "$7.75")
-        # self.assertEqual(s3.get_price(), "$19.38")
+        self.assertEqual(s3.get_price(), "$19.38")
         self.assertEqual(s3.get_name(), "Apple Mango Pineapple Fusion")
 
         self.assertEqual(s4.ingredients, ["Pineapple", "Strawberries", "Blueberries", "Mango"])
         self.assertEqual(s4.get_cost(), "$8.50")
-        # self.assertEqual(s4.get_price(), "$21.25")
+        self.assertEqual(s4.get_price(), "$21.25")
         self.assertEqual(s4.get_name(), "Blueberry Mango Pineapple Strawberry Fusion")
 
         self.assertEqual(s5.ingredients, ["Blueberries"])
         self.assertEqual(s5.get_cost(), "$1.00")
-        # self.assertEqual(s5.get_price(), "$2.50")
+        self.assertEqual(s5.get_price(), "$2.50")
         self.assertEqual(s5.get_name(), "Blueberry Smoothie")
 
 
