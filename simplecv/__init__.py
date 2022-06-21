@@ -28,12 +28,12 @@ def create_app(test_config=None):
     from . import db
     db.init_app(app)
 
-    @app.route('/')
-    def hello_world():
-        return 'Hello, World!'
+    # @app.route('/')
+    # def hello_world():
+    #     return 'Hello, World!'
 
-    # from . import app
-    # app.register_blueprint(app.blueprints)
-    # app.add_url_rule('/', endpoint='index')
+    from . import app
+    app.register_blueprint(app.blueprints)
+    app.add_url_rule('/', endpoint='index')
 
     return app
