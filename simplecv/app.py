@@ -4,15 +4,11 @@ import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
 
-from __init__ import create_app
-
 app = Flask(__name__)
 
 model = load_model('final_model.h5')
 
 model.make_predict_function()
-
-create_app()
 
 
 def predictImage(img_path):
