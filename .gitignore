@@ -51,3 +51,7 @@ wheels/
 *.egg
 /simplecv/test/
 /simplecv/train/
+/1_week
+/2_week
+/colab
+
