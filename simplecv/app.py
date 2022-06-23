@@ -6,7 +6,8 @@ import matplotlib.pyplot as plt
 
 app = Flask(__name__)
 
-model = load_model('final_model.h5')
+# model = load_model('./final_model.h5')
+model = load_model('./model.h5')
 
 model.make_predict_function()
 
