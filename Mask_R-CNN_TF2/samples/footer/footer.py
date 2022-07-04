@@ -1,6 +1,6 @@
 """
 Mask R-CNN
-Train on the login form dataset and implement color splash effect.
+Train on the footer dataset and implement color splash effect.
 
 Copyright (c) 2018 Matterport, Inc.
 Licensed under the MIT License (see LICENSE for details)
@@ -35,7 +35,7 @@ import numpy as np
 import skimage.draw
 
 # Root directory of the project
-ROOT_DIR = os.path.abspath("../../")
+ROOT_DIR = os.path.abspath("/content/drive/MyDrive/Mask-RCNN-TF2")
 # Import Mask RCNN
 sys.path.append(ROOT_DIR)  # To find local version of the library
 from mrcnn.config import Config
@@ -65,7 +65,7 @@ class Footer_detectorConfig(Config):
 
     # We use a GPU with 12GB memory, which can fit two images.
     # Adjust down if you use a smaller GPU.
-    IMAGES_PER_GPU = 1
+    IMAGES_PER_GPU = 2
 
     # Backbone network architecture
     # Supported values are: resnet50, resnet101
@@ -327,14 +327,14 @@ if __name__ == '__main__':
                         metavar="<command>",
                         help="'train' or 'splash'")
     parser.add_argument('--dataset', required=False,
-                        metavar="/path/to/footer_detector/dataset/",
+                        metavar="/content/drive/MyDrive/Mask-RCNN-TF2/dataset/footer",
                         help='Directory of the Footer_detector dataset')
     parser.add_argument('--weights', required=True,
-                        metavar="/path/to/weights.h5",
+                        metavar="/content/drive/MyDrive/Mask-RCNN-TF2/mask_rcnn_coco.h5",
                         help="Path to weights .h5 file or 'coco'")
     parser.add_argument('--logs', required=False,
                         default=DEFAULT_LOGS_DIR,
-                        metavar="/path/to/logs/",
+                        metavar="/content/drive/MyDrive/Mask-RCNN-TF2/logs",
                         help='Logs and checkpoints directory (default=logs/)')
     parser.add_argument('--image', required=False,
                         metavar="path or URL to image",
